@@ -3,6 +3,10 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def show
+    @post = Post.find(params[:id])
+  end
+
   def create
     @post = Post.new(post_params)
     if @post.save
@@ -15,6 +19,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:name, :status, :category_ids, :content)
+    params.require(:post).permit(:name, :user_id, :status, :content, :category_ids => [])
   end
 end
