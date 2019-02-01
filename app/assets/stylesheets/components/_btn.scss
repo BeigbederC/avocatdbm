@@ -1,0 +1,11 @@
+.btn-cta {
+  background-color: $green_btn;
+  padding: 8px 10px 8px 10px;
+  border-radius: 2px;
+  color: $white;
+  text-decoration: none!important;
+    &:hover {
+      opacity: 0.9;
+      color: $white;
+    }
+}
