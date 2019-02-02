@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+categories = %w(Design Rails Product Startup HTML/CSS UX UI)
+categories.each do |category|
+  Category.create!(name: category)
+end

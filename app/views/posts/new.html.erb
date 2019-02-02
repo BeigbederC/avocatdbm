@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-sm-6 offset-sm-3">
+      <div class="form-post">
+        <h1>Write a post</h1>
+        <%= simple_form_for(@post) do |f| %>
+        <div class="row">
+          <div class="col-6">
+            <%= f.input :name, placeholder: "How to design a form" %>
+          </div>
+          <div class="col-6">
+            <%= f.input :status, collection: Post::STATUSES, prompt: "Which status" %>
+          </div>
+        </div>
+          <!-- Inject categories here -->
+          <div class="form-group">
+            <label class="control-label check_boxes optional">Categories</label>
+            <input type="hidden" name="post[category_ids][]" value="">
+            <div class="category-choices">
+              <% Category.all.each do |category| %>
+                <input type="checkbox" class="d-none" value="<%= category.id %>" name="post[category_ids][]" id="post_category_ids_<%= category.id %>">
+                <label class="category-choice" for="post_category_ids_<%= category.id %>">
+                  <%= category.name %>
+                  <i class="fa fa-check"></i>
+                </label>
+              <% end %>
+             </div>
+          </div>
+
+          <%= f.input :content, placeholder: "In this tutorial..." %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.submit "Save", class: "btn btn-form"  %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
