@@ -1,19 +1,28 @@
 <div class="navbar-mihivai">
   <!-- Logo -->
   <a href="/" class="navbar-mihivai-brand">
-    <%= image_tag "logo.png" %>
+    <%= image_tag "logo1.png" %>
   </a>
 
   <div class="d-none d-md-block">
     <div class="d-flex align-items-center justify-content-between">
-      <%= link_to "Notre Activité", "#", class: "navbar-mihivai-item navbar-mihivai-link" %>
-      <%= link_to "Nos Services", "/", class: "navbar-mihivai-item navbar-mihivai-link" %>
-      <%= link_to "Contact", "/", class: "navbar-mihivai-item navbar-mihivai-link" %>
-      <% if user_signed_in? %>
-        <%= link_to t(".sign_out", default: "Log out"), destroy_user_session_path, method: :delete , class: "navbar-mihivai-item navbar-mihivai-link"%>
-      <% else %>
-        <%= link_to t(".sign_in", default: "Login"), new_user_session_path , class: "navbar-mihivai-item navbar-mihivai-link"%>
-      <% end %>
+      <%= link_to "LE CABINET", "#", class: "navbar-mihivai-item navbar-mihivai-link" %>
+
+      <div class="dropdown show">
+        <a class="dropdown-toggle navbar-mihivai-item navbar-mihivai-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          DOMAINES DE COMPÉTENCES
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="#">DROIT DU TRAVAIL</a>
+          <a class="dropdown-item" href="#">DROIT PÉNAL</a>
+          <a class="dropdown-item" href="#">DROIT CIVIL</a>
+          <a class="dropdown-item" href="#">DROIT DES DOMMAGES CORPORELS</a>
+          <a class="dropdown-item" href="#">DROIT DE LA CONSTRUCTION</a>
+        </div>
+      </div>
+
+      <%= link_to "HONORAIRES", "#", class: "navbar-mihivai-item navbar-mihivai-link" %>
+      <%= link_to "CONTACT", "#", class: "navbar-mihivai-item navbar-mihivai-link" %>
     </div>
   </div>
 
@@ -29,13 +38,14 @@
       <div class="nav">
         <div class="nav-wrapper">
           <nav class= "d-flex flex-column">
-            <%= link_to "Accueil", root_path, class: "navbar-link" %>
-            <% if user_signed_in? %>
-              <%= link_to "Se Déconnecter", destroy_user_session_path, class: "navbar-link", method: :delete %>
-            <% else %>
-              <%= link_to "Créer un Compte", new_user_registration_path, class: "navbar-link" %>
-              <%= link_to "Se Connecter", new_user_session_path,  class: "navbar-link" %>
-            <% end %>
+            <%= link_to "LE CABINET", root_path, class: "navbar-link" %>
+            <%= link_to "DROIT DU TRAVAIL", root_path, class: "navbar-link" %>
+            <%= link_to "DROIT PÉNAL", root_path, class: "navbar-link" %>
+            <%= link_to "DROIT CIVIL", root_path, class: "navbar-link" %>
+            <%= link_to "DOMMAGES CORPORELS", root_path, class: "navbar-link" %>
+            <%= link_to "CONSTRUCTION", root_path, class: "navbar-link" %>
+            <%= link_to "HONORAIRES", root_path, class: "navbar-link" %>
+            <%= link_to "CONTACT", root_path, class: "navbar-link" %>
           </nav>
         </div>
       </div>
